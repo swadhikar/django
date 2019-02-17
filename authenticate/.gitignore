@@ -1,0 +1,4 @@
+.idea/*
+*django_env/*
+*workspace.xml
+*.pyc
