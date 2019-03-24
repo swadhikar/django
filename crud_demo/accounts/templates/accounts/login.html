@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <h2>Welcome</h2><br>
+    You can log in here
+
+    <h2>Login</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container">
+
+            <div class="row">
+                <div class="column">
+                    <p>Username:</p>
+                </div>
+                <div class="column">
+                    <input type="text">
+                </div>
+
+                <div class="column">
+                    <p>Password:</p>
+                </div>
+                <div class="column">
+                    <input type="password">
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <button class="btn btn-default btn-info" type="submit">Login</button>
+
+    </form>
+
+</div>
+
+{% endblock %}
