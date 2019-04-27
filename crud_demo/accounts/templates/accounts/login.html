@@ -2,35 +2,36 @@
 
 {% block body %}
 <div class="container">
-    <h2>Welcome</h2><br>
-    You can log in here
+    <h2>You can Log In here</h2>
 
-    <h2>Login</h2>
-
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST" action="{% url 'login' %}" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="container">
-
             <div class="row">
                 <div class="column">
-                    <p>Username:</p>
+                    {{ form.username.label_tag }}
                 </div>
                 <div class="column">
-                    <input type="text">
+                    {{ form.username }}
                 </div>
 
                 <div class="column">
-                    <p>Password:</p>
+                    {{ form.password.label_tag }}
                 </div>
+
                 <div class="column">
-                    <input type="password">
+                    {{ form.password }}
                 </div>
             </div>
         </div>
 
+        {% if form.errors %}
+        <br>
+        <p>{{ form.errors }}</p>
+        {% endif %}
+
         <br>
         <button class="btn btn-default btn-info" type="submit">Login</button>
-
     </form>
 
 </div>

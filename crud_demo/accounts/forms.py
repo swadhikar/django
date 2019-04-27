@@ -25,3 +25,10 @@ class RegistrationForm(UserCreationForm):
         user.save()
 
         return user
+
+
+class HomeForm(forms.Form):
+    post = forms.CharField(max_length=50)
+
+
+

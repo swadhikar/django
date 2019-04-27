@@ -3,5 +3,7 @@ from . import views as blog_views
 
 urlpatterns = [
     path('', blog_views.index, name='blog_home'),
-    # path('login/', LoginView.as_view(template_name='accounts/login.html'), name='login'),
+    path('create/', blog_views.create_post, name='blog_create'),
+    path('delete/<int:id>', blog_views.delete_post, name='blog_delete'),
+    path('update/<int:id>', blog_views.update_post, name='blog_update'),
 ]

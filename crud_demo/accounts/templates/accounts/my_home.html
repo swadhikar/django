@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <h2>Welcome to the Accounts Home page!</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if text %}
+        <p>You have entered: <h2>{{ text }}</h2></p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

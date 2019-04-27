@@ -1,11 +1,28 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <div class="container">
-        <h2>Welcome to the Social networking home!</h2>
-            {% for post in posts %}
-                <h3>{{ post.title }}</h3>
-                <p>{{ post.content }}</p>
-            {% endfor %}
-    </div>
+<div class="container">
+    {% for post in posts %}
+        <div class="col-md-12">
+            <h3 class="label label-primary">{{ post.title }}</h3>
+            <span class="text-muted">
+                <small>{{ post.author.first_name }}, {{ post.author.last_name }}</small>
+            </span>
+            <br>
+            <br>
+            <p>{{ post.content }}</p>
+            <div>
+                <span class="badge">Posted {{ post.date_posted }}</span>
+                <div class="pull-right">
+                    {% if user == post.author %}
+                        <a href="{% url 'blog_update' post.id %}" class="label label-info">Update post</a>
+                        <a href="{% url 'blog_delete' post.id %}" class="label label-danger">Delete</a>
+                    {% endif %}
+                </div>
+            </div>
+            <hr>
+        </div>
+    {% endfor %}
+</div>
+
 {% endblock %}
